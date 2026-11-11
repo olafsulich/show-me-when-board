@@ -9,7 +9,10 @@ h1 { margin: 0; font-size: 22px; }
 .row.sev2 .sev { color: #a15c00; }
 .row time { color: #555; font-variant-numeric: tabular-nums; }
 footer { color: #777; font-size: 13px; }
-.row { grid-template-columns: 90px 50px 1fr 220px 80px; }
+.row { grid-template-columns: 90px 50px 1fr 200px 70px; cursor: pointer; }
+.row:hover { background: #f4f6fb; }
+.row:focus-visible { outline: 2px solid #2b5cd9; outline-offset: -2px; }
+.row.is-open { background: #e8eefc; box-shadow: inset 3px 0 0 #2b5cd9; }
 .row.is-acked { background: #f2f8f2; }
 .act button { font: inherit; padding: 4px 12px; border: 1px solid #888; border-radius: 6px; background: #fff; cursor: pointer; }
 .act button:disabled { opacity: .6; cursor: default; }
@@ -19,3 +22,21 @@ footer { color: #777; font-size: 13px; }
 .error { color: #b00020; }
 .status { font-variant-numeric: tabular-nums; }
 footer code { font-family: ui-monospace, monospace; }
+.panel { position: fixed; top: 16px; right: 16px; width: 240px; max-height: calc(100vh - 32px); overflow: auto; padding: 16px; background: #fff; border: 1px solid #d5d5d5; border-radius: 10px; box-shadow: 0 8px 24px rgba(0,0,0,.08); }
+.panel[hidden] { display: none; }
+.panel-head { display: flex; justify-content: space-between; align-items: center; }
+.panel h2 { margin: 0; font: 600 18px ui-monospace, monospace; }
+.panel-close { font: inherit; font-size: 20px; line-height: 1; border: 0; background: none; cursor: pointer; padding: 4px 8px; }
+.panel-sev { margin: 4px 0 12px; }
+.panel-sev.sev1 { color: #b00020; font-weight: 600; }
+.panel-sev.sev2 { color: #a15c00; }
+.panel-facts { margin: 0 0 16px; display: grid; grid-template-columns: auto 1fr; gap: 4px 12px; }
+.panel-facts dt { color: #666; }
+.panel-facts dd { margin: 0; overflow-wrap: anywhere; }
+.panel-ack { width: 100%; font: inherit; font-weight: 600; padding: 10px 12px; border: 1px solid #1d1d1f; border-radius: 8px; background: #1d1d1f; color: #fff; cursor: pointer; }
+.panel-ack:disabled { opacity: .6; cursor: default; }
+@media (max-width: 1040px) {
+  .panel { top: auto; bottom: 0; left: 0; right: 0; width: auto; border-radius: 12px 12px 0 0; }
+  .row { grid-template-columns: 80px 44px 1fr; }
+  .row time, .row .act { grid-column: 3; }
+}
